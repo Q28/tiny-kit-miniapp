@@ -1,0 +1,144 @@
+.container {
+  padding: 24rpx;
+  background: linear-gradient(180deg, #f3f7ff 0%, #f7f8fa 35%, #f7f8fa 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1677ff 0%, #63a1ff 100%);
+  border-radius: 20rpx;
+  padding: 28rpx 24rpx;
+  color: #fff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 10rpx 24rpx rgba(22, 119, 255, 0.2);
+}
+
+.hero-title {
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.hero-desc {
+  font-size: 24rpx;
+  opacity: 0.95;
+  margin-top: 8rpx;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 26rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 6rpx 20rpx rgba(27, 39, 94, 0.08);
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.sub-title {
+  color: #7b8499;
+  font-size: 24rpx;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tips-text {
+  margin-top: 10rpx;
+  color: #94a3b8;
+  font-size: 22rpx;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 16rpx;
+  background: #ffffff;
+  border: 1rpx solid #edf2f9;
+  border-radius: 14rpx;
+  padding: 12rpx;
+}
+
+.option-index {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 22rpx;
+  background: #e8f1ff;
+  color: #1677ff;
+  text-align: center;
+  line-height: 44rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.option-input {
+  flex: 1;
+  height: 80rpx;
+  background: #f6f8fc;
+  border: 1rpx solid #e8edf5;
+  border-radius: 14rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.add-btn {
+  margin-top: 16rpx;
+  border-radius: 14rpx;
+  background: #edf4ff;
+  border: 1rpx solid #cfe1ff;
+  font-size: 26rpx;
+  color: #1677ff;
+}
+
+.action-row {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.btn {
+  flex: 1;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+}
+
+.primary {
+  background: linear-gradient(135deg, #1677ff 0%, #3f8dff 100%);
+  color: #fff;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.result-card {
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.result-text {
+  font-size: 54rpx;
+  font-weight: 700;
+  color: #1677ff;
+  margin: 20rpx 0 8rpx;
+}
+
+.history-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #eef2f7;
+  color: #334155;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}

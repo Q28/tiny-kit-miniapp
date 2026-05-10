@@ -1,0 +1,101 @@
+<view class="container">
+  <!-- 解析卡片 -->
+  <view class="card">
+    <view class="title">抖音分享链接解析</view>
+    <view class="sub-title">粘贴抖音分享文案，提取并解析无水印视频/图文</view>
+
+    <textarea
+      class="input"
+      placeholder="示例：复制打开抖音，看看【xxx】 https://v.douyin.com/xxxxxx/"
+      value="{{inputText}}"
+      bindinput="onInput"
+      auto-height
+      maxlength="-1"
+    />
+
+    <view class="action-row">
+      <button class="btn primary" loading="{{parsing}}" bindtap="onParse">解析视频</button>
+      <button class="btn" bindtap="onPaste">粘贴</button>
+      <button class="btn" bindtap="onClear">清空</button>
+    </view>
+  </view>
+
+  <!-- 解析结果 -->
+  <view class="card" wx:if="{{videoInfo}}">
+    <!-- 类型标签 -->
+    <view class="type-badge {{videoInfo.isImage ? 'badge-image' : 'badge-video'}}">
+      {{videoInfo.isImage ? '图文' : '视频'}}
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="section-title">基本信息</view>
+    <view class="item"><text class="label">视频ID：</text><text class="value">{{videoInfo.videoId}}</text></view>
+    <view class="item"><text class="label">标题：</text><text class="value">{{videoInfo.title}}</text></view>
+    <view class="item"><text class="label">作者：</text><text class="value">{{videoInfo.author}}</text></view>
+    <view wx:if="{{!videoInfo.isImage}}" class="item"><text class="label">时长：</text><text class="value">{{videoInfo.durationSec}} 秒</text></view>
+    <view wx:if="{{!videoInfo.isImage && videoInfo.playUrl}}" class="item">
+      <text class="label">播放地址：</text><text class="value url-value">{{videoInfo.playUrlPreview}}</text>
+    </view>
+    <button wx:if="{{!videoInfo.isImage && videoInfo.playUrl}}" class="small-btn" bindtap="onCopyPlayUrl">复制播放地址</button>
+
+    <!-- 视频预览 -->
+    <view wx:if="{{!videoInfo.isImage && videoInfo.playUrl}}" class="section-title preview-title">视频预览</view>
+    <view wx:if="{{!videoInfo.isImage && videoInfo.playUrl}}">
+      <video
+        class="preview-video"
+        src="{{videoInfo.playUrl}}"
+        poster="{{videoInfo.coverUrl}}"
+        controls
+        show-center-play-btn
+        object-fit="contain"
+        binderror="onVideoError"
+      />
+    </view>
+    <view wx:elif="{{!videoInfo.isImage && videoLoadError}}" class="preview-empty">视频加载失败，可直接下载</view>
+
+    <!-- 图片预览 -->
+    <view wx:if="{{videoInfo.isImage}}" class="section-title preview-title">图片预览（{{videoInfo.imageUrls.length}} 张）</view>
+    <swiper
+      wx:if="{{videoInfo.isImage && videoInfo.imageUrls.length > 0}}"
+      class="preview-swiper"
+      indicator-dots
+      indicator-color="rgba(255,255,255,0.4)"
+      indicator-active-color="#1677ff"
+    >
+      <swiper-item wx:for="{{videoInfo.imageUrls}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFit" class="swiper-image" show-menu-by-longpress />
+      </swiper-item>
+    </swiper>
+
+    <!-- 封面 -->
+    <view wx:if="{{videoInfo.coverUrl}}" class="section-title preview-title">封面</view>
+    <view wx:if="{{videoInfo.coverUrl}}" class="cover-wrap">
+      <image class="cover" mode="aspectFill" src="{{videoInfo.coverUrl}}" />
+    </view>
+    <view wx:if="{{videoInfo.coverUrl}}" class="cover-actions">
+      <button class="small-btn" bindtap="onCopyCoverUrl">复制封面地址</button>
+      <button class="small-btn primary-outline" bindtap="onDownloadCover" loading="{{downloadingCover}}">下载封面</button>
+    </view>
+
+    <!-- 视频下载进度 -->
+    <view wx:if="{{!videoInfo.isImage && downloadProgress >= 0}}" class="progress-wrap">
+      <progress percent="{{downloadProgress}}" stroke-width="6" activeColor="#1677ff" />
+      <text class="progress-text">{{downloadProgress}}%</text>
+    </view>
+
+    <!-- 下载按钮 -->
+    <button
+      class="btn primary download-btn"
+      bindtap="onDownload"
+      loading="{{downloading}}"
+      disabled="{{downloading}}"
+    >
+      {{downloading ? '下载中...' : (videoInfo.isImage ? '下载全部图片并保存' : '下载视频并保存')}}
+    </button>
+  </view>
+
+  <!-- 状态提示 -->
+  <view class="status-card" wx:if="{{statusMsg}}">
+    <text class="status-text {{statusType}}">{{statusMsg}}</text>
+  </view>
+</view>

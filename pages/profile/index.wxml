@@ -1,0 +1,87 @@
+<view class="container">
+  <!-- 已登录 -->
+  <block wx:if="{{userInfo}}">
+    <view class="profile-card">
+      <image
+        wx:if="{{userInfo.avatarUrl}}"
+        class="profile-avatar"
+        src="{{userInfo.avatarUrl}}"
+        mode="aspectFill"
+      />
+      <view wx:else class="profile-avatar placeholder">未</view>
+      <view class="profile-name">{{userInfo.nickName || '微信用户'}}</view>
+      <view class="profile-phone" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</view>
+    </view>
+
+    <view class="menu-card">
+      <view class="menu-title">问题反馈</view>
+      <view class="menu-arrow">></view>
+    </view>
+
+    <view class="menu-card contact-wrap">
+      <view class="menu-title">在线客服</view>
+      <button class="contact-inner-btn" open-type="contact"></button>
+    </view>
+
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </block>
+
+  <!-- 未登录 -->
+  <block wx:else>
+    <view class="profile-card">
+      <view class="profile-avatar placeholder">未</view>
+      <view class="profile-name">未登录</view>
+      <view class="profile-tip">登录后可同步数据</view>
+      <view class="login-btns">
+        <button class="wx-login-btn" bindtap="onShowLoginPanel">微信登录</button>
+        <button class="phone-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">手机号登录</button>
+      </view>
+    </view>
+
+    <view class="menu-card">
+      <view class="menu-title">问题反馈</view>
+      <view class="menu-arrow">></view>
+    </view>
+
+    <view class="menu-card contact-wrap">
+      <view class="menu-title">在线客服</view>
+      <button class="contact-inner-btn" open-type="contact"></button>
+    </view>
+  </block>
+</view>
+
+<!-- 授权弹窗遮罩 -->
+<view class="login-mask" wx:if="{{showLoginPanel}}" bindtap="onHideLoginPanel"></view>
+
+<!-- 授权弹窗 -->
+<view class="login-panel" wx:if="{{showLoginPanel}}">
+  <view class="login-panel-title">微信授权登录</view>
+  <view class="login-panel-desc">授权后展示你的微信头像和昵称</view>
+
+  <button class="login-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+    <image
+      wx:if="{{tempAvatarUrl}}"
+      class="login-avatar-img"
+      src="{{tempAvatarUrl}}"
+      mode="aspectFill"
+    />
+    <view wx:else class="login-avatar-placeholder">+</view>
+    <text class="login-avatar-label">{{tempAvatarUrl ? '已选择' : '点击获取微信头像'}}</text>
+  </button>
+
+  <input
+    type="nickname"
+    class="login-nickname-input"
+    placeholder="点击此处获取微信昵称"
+    value="{{tempNickname}}"
+    bindinput="onNicknameInput"
+    bindblur="onNicknameBlur"
+  />
+
+  <button
+    class="login-confirm-btn {{tempAvatarUrl && tempNickname ? 'active' : ''}}"
+    bindtap="onConfirmLogin"
+  >确认登录</button>
+
+  <view class="login-close" bindtap="onHideLoginPanel">暂不登录</view>
+</view>

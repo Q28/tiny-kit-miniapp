@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="hero">
+    <view class="hero-title">工具服务主页</view>
+    <view class="hero-desc">请选择你要使用的功能</view>
+  </view>
+
+  <!-- 已登录 -->
+  <view class="user-card" wx:if="{{userInfo}}">
+    <view class="user-left">
+      <image
+        wx:if="{{userInfo.avatarUrl}}"
+        class="avatar"
+        src="{{userInfo.avatarUrl}}"
+        mode="aspectFill"
+      />
+      <view wx:else class="avatar placeholder">未</view>
+      <view>
+        <view class="user-name">{{userInfo.nickName || '微信用户'}}</view>
+        <view class="user-tip">已登录</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 未登录 -->
+  <!-- <view class="user-card" wx:else>
+    <view class="user-left">
+      <view class="avatar placeholder">未</view>
+      <view>
+        <view class="user-name">未登录</view>
+        <view class="user-tip">请前往「我的」页面登录</view>
+      </view>
+    </view>
+  </view> -->
+
+  <view class="menu-card" bindtap="goDouyinParser">
+    <view class="menu-title">抖音分享链接解析</view>
+    <view class="menu-desc">提取分享文案链接并查看解析结果</view>
+    <view class="menu-action">进入功能 ></view>
+  </view>
+
+  <view class="menu-card" bindtap="goLottery">
+    <view class="menu-title">随机抽签</view>
+    <view class="menu-desc">支持新增、编辑候选项并一键抽签</view>
+    <view class="menu-action">进入功能 ></view>
+  </view>
+</view>

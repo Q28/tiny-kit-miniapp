@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="hero">
+    <view class="hero-title">随机抽签</view>
+    <view class="hero-desc">添加候选项后，一键抽取幸运选项</view>
+  </view>
+
+  <view class="card">
+    <view class="section-head">
+      <view class="title">候选项列表</view>
+      <view class="sub-title">{{options.length}} 个选项</view>
+    </view>
+    <view class="tips-text">长按某一行可删除该选项</view>
+
+    <block wx:for="{{options}}" wx:key="id">
+      <view class="option-row" data-id="{{item.id}}" bindlongpress="onLongPressDelete">
+        <view class="option-index">{{index + 1}}</view>
+        <input
+          class="option-input"
+          placeholder="请输入候选项"
+          value="{{item.value}}"
+          data-id="{{item.id}}"
+          bindinput="onOptionInput"
+        />
+      </view>
+    </block>
+
+    <button class="add-btn" bindtap="onAddOption">+ 新增选项</button>
+
+    <view class="action-row">
+      <button class="btn primary" bindtap="onDraw">开始抽签</button>
+      <button class="btn" bindtap="onReset">重置</button>
+    </view>
+  </view>
+
+  <view class="card result-card" wx:if="{{result}}">
+    <view class="section-title">本次结果</view>
+    <view class="result-text">{{result}}</view>
+  </view>
+
+  <view class="card" wx:if="{{history.length}}">
+    <view class="section-title">最近记录</view>
+    <block wx:for="{{history}}" wx:key="index">
+      <view class="history-item">{{item}}</view>
+    </block>
+  </view>
+</view>

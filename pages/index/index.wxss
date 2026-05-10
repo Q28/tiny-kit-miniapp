@@ -1,0 +1,219 @@
+.container {
+  padding: 24rpx;
+}
+
+/* 卡片 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.sub-title {
+  color: #888;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+/* 输入框 */
+.input {
+  width: 100%;
+  min-height: 180rpx;
+  margin-top: 20rpx;
+  background: #f7f8fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+/* 操作按钮行 */
+.action-row {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.btn {
+  flex: 1;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.primary {
+  background: #1677ff;
+  color: #fff;
+}
+
+.primary-outline {
+  background: #fff;
+  color: #1677ff;
+  border: 2rpx solid #1677ff;
+}
+
+/* 类型标签 */
+.type-badge {
+  display: inline-block;
+  padding: 6rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  color: #fff;
+  margin-bottom: 16rpx;
+}
+.badge-video {
+  background: #1677ff;
+}
+.badge-image {
+  background: #52c41a;
+}
+
+/* 节标题 */
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 12rpx;
+}
+
+.preview-title {
+  margin-top: 24rpx;
+}
+
+/* 信息项 */
+.item {
+  margin-bottom: 12rpx;
+  word-break: break-all;
+  font-size: 28rpx;
+}
+
+.label {
+  color: #666;
+}
+
+.value {
+  color: #333;
+}
+
+.url-value {
+  color: #1677ff;
+  font-size: 24rpx;
+}
+
+.small-btn {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+
+/* 视频预览 */
+.preview-video {
+  width: 100%;
+  height: 420rpx;
+  border-radius: 12rpx;
+  background: #000;
+}
+
+.preview-empty {
+  color: #999;
+  background: #f7f8fa;
+  border-radius: 10rpx;
+  padding: 16rpx;
+  font-size: 26rpx;
+}
+
+/* 图片轮播 */
+.preview-swiper {
+  width: 100%;
+  height: 500rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #000;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 封面 */
+.cover-wrap {
+  margin-top: 0;
+}
+
+.cover {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 12rpx;
+}
+
+.cover-actions {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 14rpx;
+}
+
+.cover-actions .small-btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* 进度条 */
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.progress-wrap progress {
+  flex: 1;
+}
+
+.progress-text {
+  font-size: 26rpx;
+  color: #1677ff;
+  margin-left: 16rpx;
+  width: 80rpx;
+  text-align: right;
+}
+
+/* 下载按钮 */
+.download-btn {
+  margin-top: 8rpx;
+}
+
+/* 状态提示 */
+.status-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.status-text {
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.status-text.success {
+  color: #52c41a;
+}
+
+.status-text.error {
+  color: #ff4d4f;
+}
+
+.status-text.info {
+  color: #1677ff;
+}
