@@ -1,6 +1,6 @@
 <view class="container">
   <view class="hero">
-    <view class="hero-title">工具服务主页</view>
+    <view class="hero-title">极简工具Plus</view>
     <view class="hero-desc">请选择你要使用的功能</view>
   </view>
 

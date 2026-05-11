@@ -1,5 +1,5 @@
 {
-  "description": "抖音视频无水印解析",
+  "description": "极简工具Plus",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -42,8 +42,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.16.0",
-  "appid": "wx532f5b9d1ff07bd1",
-  "projectname": "douyin-miniapp",
+  "appid": "wx04b69e092fec80fe",
+  "projectname": "tiny-kit-miniapp",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
